@@ -348,6 +348,7 @@ function game:mousepressed()
 	x = DIV(love.mouse.getX(), 100)+1
 	y = love.mouse.getY()
 	if y > 100 then
+		love.audio.play(digsfx)
 		y = 5*DIV(y-100, 100)
 		if board[x+y] < 2 and x+y ~= 13 then
 			board[x+y] = board[x+y] + 1
