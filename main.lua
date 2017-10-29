@@ -28,6 +28,7 @@ math.randomseed(os.time())
 menubg = love.graphics.newImage("Assets/Art/Titlecard.png")
 winbg = love.graphics.newImage("Assets/Art/Winscreen.png")
 losebg = love.graphics.newImage("Assets/Art/Losescreen.png")
+instructionbg = love.graphics.newImage("Assets/Art/Instructions.png")
 dig1 = love.graphics.newImage("Assets/Art/recLight.png")
 dig2 = love.graphics.newImage("Assets/Art/recDark.png")
 dig3 = love.graphics.newImage("Assets/Art/recDarkest.png")
@@ -46,9 +47,14 @@ while i <= 25 do
 	i = i+1
 end
 boardImages[13] = tentspr
+
+
 --sounds
 digsfx = love.audio.newSource("Assets/Sound/Digging noise.wav", "static")
---bgm = love.audio.newSource("Assets/Sound/bgm.wav", "stream")
+bgm = love.audio.newSource("Assets/Sound/Dino_Dig Background Music.wav", "stream")
+bgm:setVolume(.1)
+bgm:setLooping(true)
+love.audio.play(bgm)
 
 --board assets and global variables
 board = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
@@ -150,18 +156,14 @@ end
 
 --Draws the instructions on the instruction screen
 function instruction:draw()
-	love.graphics.setColor(255, 0, 0)
-	love.graphics.printf("There are scattered dinosaur bones all throughout the area! Find the bones by digging into the ground. Some may be buried deeper than others. You have 3 days to find all the bones. When the day ends, some sand will come back.\nClick on a space to dig there", 100, 115, 200, "left", 0, 1.5, 1.5)
-	love.graphics.setColor(0, 150, 0)
-	love.graphics.rectangle("fill", 100, 400, 200, 50)
-	love.graphics.setColor(255, 0, 0)
-	love.graphics.print("Main Menu", 120, 415, 0, 1.5, 1.5)
+	love.graphics.reset()
+	love.graphics.draw(instructionbg)
 end
 
 --Allows menu navigation
 function instruction:mousepressed()
-	if love.mouse.getX() >= 100 and love.mouse.getX() <= 300 then
-		if love.mouse.getY() >= 400 and love.mouse.getY() <= 450 then
+	if love.mouse.getX() >= 70 and love.mouse.getX() <= 225 then
+		if love.mouse.getY() >= 385 and love.mouse.getY() <= 450 then
 			Gamestate.switch(menu)
 		end
 	end
