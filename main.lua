@@ -45,7 +45,7 @@ while i <= 25 do
 	boardImages[i] = dig1
 	i = i+1
 end
-
+boardImages[13] = tentspr
 --sounds
 digsfx = love.audio.newSource("Assets/Sound/Digging noise.wav", "static")
 --bgm = love.audio.newSource("Assets/Sound/bgm.wav", "stream")
@@ -400,14 +400,3 @@ function win:draw()
 	love.graphics.reset()
 	love.graphics.draw(winbg)
 end
-
-
-
-
-
-
-
-
-
-
-
