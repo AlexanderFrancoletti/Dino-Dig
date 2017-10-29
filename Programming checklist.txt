@@ -1,0 +1,25 @@
+Checklist:
+
+Board function:
+- 5x5x2
+- Dig removes a 1x1x1 tile
+- Hides Dinosaur pieces in the tiles
+- Cannot dig on found pieces
+- Middle piece is a tent
+- Pieces can't overlap
+
+Day/Move system:
+- Set moves per day
+- At the end of each day, add sand
+- Enough moves to cover roughly 75% of the board
+
+Piece function:
+- Take up a set amount of space
+- Only take up spaces on the same depth
+
+General functionality:
+- No objects
+- No collisions
+- Plays like battleship
+- Ends when each piece is found
+- 3 Screens
